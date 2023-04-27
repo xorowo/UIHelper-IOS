@@ -15,29 +15,6 @@ public extension UINib {
     
 }
 
-//MARK: Storyboard instance
-public extension ViewController {
-    
-    class func board(name: String, id: String, isPresent: Bool = false) -> ViewController {
-        let vc = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as! Self
-        if isPresent {
-            vc.modalPresentationStyle = .overFullScreen
-        }
-        return vc
-    }
-
-    class var instance: ViewController! {
-        nil
-    }
-
-    class func instance(value: Any?) -> ViewController {
-        let vc = instance!
-        vc.value = value
-        return vc
-    }
-    
-}
-
 public extension UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

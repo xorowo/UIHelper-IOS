@@ -23,6 +23,26 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         super.viewWillDisappear(animated)
     }
     
+    //MARK: Storyboard instance START
+    class func board(name: String, id: String, isPresent: Bool = false) -> ViewController {
+        let vc = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as! Self
+        if isPresent {
+            vc.modalPresentationStyle = .overFullScreen
+        }
+        return vc
+    }
+    
+    open class var instance: ViewController! {
+        nil
+    }
+    
+    open class func instance(value: Any?) -> ViewController {
+        let vc = instance!
+        vc.value = value
+        return vc
+    }
+    //MARK: Storyboard instance END
+    
     //MARK: ControllerProtocol START
     open var value: Any?
     open var isHiddenNavigationBar: Bool {
