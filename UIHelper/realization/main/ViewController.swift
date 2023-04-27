@@ -24,7 +24,7 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
     }
     
     //MARK: Storyboard instance START
-    class func board(name: String, id: String, isPresent: Bool = false) -> ViewController {
+    open class func board(name: String, id: String, isPresent: Bool = false) -> ViewController {
         let vc = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as! Self
         if isPresent {
             vc.modalPresentationStyle = .overFullScreen
@@ -49,19 +49,19 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         false
     }
     
-    func push(_ vc: UIViewController) {
+    public func push(_ vc: UIViewController) {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func dismissNav() {
+    @IBAction public func dismissNav() {
         dismiss(animated: true)
     }
     
-    @IBAction func comebackNav() {
+    @IBAction public func comebackNav() {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func endEditing() {
+    @IBAction public func endEditing() {
         view.endEditing(true)
     }
     //MARK: ControllerProtocol END
