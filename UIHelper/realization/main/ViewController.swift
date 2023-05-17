@@ -23,8 +23,8 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         super.viewWillDisappear(animated)
     }
     
-    //MARK: Storyboard instance START
-    open class func board(name: String, id: String, isPresent: Bool = false) -> ViewController {
+    //!!!: - Storyboard instance START -
+    open class func board(name: String, id: String, isPresent: Bool = false) -> Self {
         let vc = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id) as! Self
         if isPresent {
             vc.modalPresentationStyle = .overFullScreen
@@ -32,18 +32,18 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         return vc
     }
     
-    open class var instance: ViewController! {
+    open class var instance: Self! {
         nil
     }
     
-    open class func instance(value: Any?) -> ViewController {
+    open class func instance(value: Any?) -> Self {
         let vc = instance!
         vc.value = value
         return vc
     }
-    //MARK: Storyboard instance END
+    //!!!: - Storyboard instance END -
     
-    //MARK: ControllerProtocol START
+    //!!!: - ControllerProtocol START -
     open var value: Any?
     open var isHiddenNavigationBar: Bool {
         false
@@ -64,9 +64,9 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
     @IBAction public func endEditing() {
         view.endEditing(true)
     }
-    //MARK: ControllerProtocol END
+    //!!!: - ControllerProtocol END -
     
-    //MARK: ControllerKeyboardProtocol START
+    //!!!: - ControllerKeyboardProtocol START -
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint?
     var oldBottomValue: CGFloat = 0.0
     
@@ -91,7 +91,7 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardLoyaltyWillHide),
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    //MARK: ControllerKeyboardProtocol END
+    //!!!: - ControllerKeyboardProtocol END -
 
 }
 
