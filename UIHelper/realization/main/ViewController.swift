@@ -74,7 +74,7 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         guard let bottom = bottomConstraint else { return }
         oldBottomValue = bottom.constant
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            bottom.constant = keyboardFrame.cgRectValue.height
+            bottom.constant = keyboardFrame.cgRectValue.height - view.safeAreaInsets.bottom
             view.layoutIfNeeded()
         }
     }
