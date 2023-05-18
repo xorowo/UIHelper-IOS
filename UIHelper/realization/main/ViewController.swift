@@ -85,7 +85,7 @@ open class ViewController: UIViewController, ControllerProtocol, ControllerKeybo
         view.layoutIfNeeded()
     }
     
-    func keyboardListener() {
+    public func keyboardListener() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardLoyaltyWillShow),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardLoyaltyWillHide),
